@@ -1,1 +1,360 @@
-# favmobileshop.github.io
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favourite Mobile Shop | Premium Mobile Accessories</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        :root {
+            --primary: #1e293b;
+            --accent: #2563eb;
+            --text: #0f172a;
+            --light: #f8fafc;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        header {
+            background-color: var(--primary);
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            color: var(--white);
+            padding: 6rem 5%;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #cbd5e1;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-btn {
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: transform 0.3s, background-color 0.3s;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            background-color: #1d4ed8;
+        }
+
+        /* Category Grid Section */
+        .section {
+            padding: 5rem 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 50px;
+            height: 4px;
+            background-color: var(--accent);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+
+        .card i {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card p {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        /* About Section Custom Styling */
+        .about-box {
+            background-color: var(--white);
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-box p {
+            margin-bottom: 1.5rem;
+            color: #334155;
+            font-size: 1.1rem;
+        }
+
+        /* Contact Section Grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .info-panel {
+            background-color: var(--white);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-item i {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-right: 1rem;
+            margin-top: 0.25rem;
+        }
+
+        .info-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .info-text p {
+            color: #64748b;
+        }
+
+        .whatsapp-btn {
+            background-color: #25d366;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .whatsapp-btn i {
+            margin-right: 0.5rem;
+            font-size: 1.25rem;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #20ba5a;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: #94a3b8;
+            text-align: center;
+            padding: 2rem 5%;
+            font-size: 0.9rem;
+            border-top: 1px solid #334155;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            nav { display: none; } /* Simplified for single page mobile view */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navigation Bar -->
+    <header>
+        <div class="logo">FAVOURITE<span>MOBILE</span></div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#products">Products</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Showcase Section -->
+    <section id="home" class="hero">
+        <h1>Your One-Stop Premium Accessories Hub</h1>
+        <p>Enhance, protect, and power up your mobile devices with top-tier covers, chargers, and tempered glass built for longevity.</p>
+        <a href="#products" class="cta-btn">Explore Collection</a>
+    </section>
+
+    <!-- Main Product Categories -->
+    <section id="products" class="section">
+        <h2 class="section-title">What We Offer</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-shield-halved"></i>
+                <h3>Premium Mobile Covers</h3>
+                <p>Shockproof cases, sleek silicones, and stylized designs engineered for perfect edge-to-edge protection.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-bolt"></i>
+                <h3>Fast Chargers & Adapters</h3>
+                <p>High-efficiency circuit adapters engineered for rapid, safe charging without overheating your battery.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-bolt-lightning"></i>
+                <h3>Durable Data Cables</h3>
+                <p>Heavy-duty, reinforced braided copper cables supporting ultra-fast charging and seamless data transfer sync.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-mobile-screen-button"></i>
+                <h3>Tempered Glass</h3>
+                <p>9H hardness rated screen guards providing flawless scratch resistance and high-definition clarity.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="section" style="background-color: #f1f5f9;">
+        <h2 class="section-title">About Our Brand</h2>
+        <div class="about-box">
+            <p>At <strong>Favourite Mobile Shop</strong>, we bridge the gap between high-quality manufacturing and everyday utility. Operating as a reliable destination for retail clients, we specialize in supplying exceptional, long-lasting mobile add-ons.</p>
+            <p>Our commitment relies heavily on technical durability. Every data cable, adapter, and protective screen we assemble undergoes strict quality checks, ensuring that your tech remains powered and thoroughly protected throughout the day.</p>
+        </div>
+    </section>
+
+    <!-- Contact Panel Section -->
+    <section id="contact" class="section">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-grid">
+            <div class="info-panel">
+                <div class="info-item">
+                    <i class="fas fa-location-dot"></i>
+                    <div class="info-text">
+                        <h4>Our Location</h4>
+                        <p>Favourite Mobile Shop, Retail & Operations Hub</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <div class="info-text">
+                        <h4>Email Us</h4>
+                        <p>contact@favmobileshop.com</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <div class="info-text">
+                        <h4>Business Hours</h4>
+                        <p>Mon - Sat: 10:00 AM - 9:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="info-panel" style="display: flex; flex-direction: column; justify-content: center; align-items: flex-start;">
+                <h4>Have a Question or Custom Bulk Order?</h4>
+                <p style="color: #64748b; margin-top: 0.5rem; margin-bottom: 1.5rem;">Connect with our team directly via WhatsApp for quick quotes, inventory checks, or storefront collection details.</p>
+                <a href="https://wa.me/#" target="_blank" class="whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Favourite Mobile Shop. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
